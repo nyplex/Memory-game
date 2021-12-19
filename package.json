@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tailwatch": "tailwindcss -i ./src/style/main.css -o ./dist/output.css --watch"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/nyplex/Memory-game/issues"
   },
-  "homepage": "https://github.com/nyplex/Memory-game#readme"
+  "homepage": "https://github.com/nyplex/Memory-game#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.0.7"
+  }
 }
