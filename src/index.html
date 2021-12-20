@@ -5,10 +5,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- CSS -->
     <link rel="stylesheet" href="./../../dist/output.css">
 </head>
-<body>
-    <h1 class="text-red-700 text-6xl font-bold text-center">Title</h1>
+<body class="max-h-[100vh] overflow-hidden">
+    <!-- Start Game Container -->
+    <div class="z-50 bg-[#152938] w-[100vw] h-[100vh] absolute hidden">
+        <div class="absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] w-[90%] max-w-screen-sm">
+            <h1 class="text-white text-center text-4xl font-bold mb-[45px]">memory</h1>
+            <div class="bg-white p-[24px] rounded-xl shadow-sm shadow-gray-500">
+                <div class="mb-6">
+                    <h3 class="text-[#7191A5] font-Aktinson font-bold mb-3">Select Theme</h3>
+                    <div class="w-full flex flex-row justify-between">
+                        <button class="btn btn-gray btn-small active w-[50%] mr-2">Numbers</button>
+                        <button class="btn btn-gray btn-small w-[50%] ml-2">Icons</button>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <h3 class="text-[#7191A5] font-Aktinson font-bold mb-3">Numbers of Players</h3>
+                    <div class="w-full flex flex-row justify-between">
+                        <button class="btn btn-gray btn-small active w-[25%] mr-1">1</button>
+                        <button class="btn btn-gray btn-small w-[25%] ml-1 mr-1">2</button>
+                        <button class="btn btn-gray btn-small w-[25%] mr-1 ml-1">3</button>
+                        <button class="btn btn-gray btn-small w-[25%] ml-1">4</button>
+                    </div>
+                </div>
+                <div class="mb-6">
+                    <h3 class="text-[#7191A5] font-Aktinson font-bold mb-3">Grid Size</h3>
+                    <div class="w-full flex flex-row justify-between">
+                        <button class="btn btn-gray btn-small active w-[50%] mr-2">4x4</button>
+                        <button class="btn btn-gray btn-small w-[50%] ml-2">6x6</button>
+                    </div>
+                </div>
+                <button class="btn btn-yellow btn-large w-full">Start Game</button>
+            </div>
+        </div>
+    </div><!-- End start game container -->
+    <!-- Navbar - header -->
+    <header class="z-0">
+        <div class="flex flex-row justify-between items-center p-[24px]">
+            <h1 class="text-[#152938] font-Aktinson font-bold text-[28px]">memory</h1>
+            <button id="menu-btn" class="btn btn-yellow btn-small sm:hidden">MENU</button>
+            <div class="hidden sm:block">
+                <button class="btn btn-yellow btn-small mr-[16px]">Restart</button>
+                <button class="btn btn-gray btn-small">New Game</button>
+            </div>
+        </div>
+    </header><!-- End navbar - header -->
+    <!-- Mobile Navbar modal -->
+    <div id="mobile-menu-bg" class="w-[100vw] h-[100vh] bg-black opacity-70 absolute z-10 top-0 hidden sm:hidden"></div>
+    <div id="mobile-menu" class="hidden flex-col bg-white w-[90%] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] p-[24px] rounded-xl shadow-lg z-20 sm:hidden">
+        <button class="btn btn-yellow btn-large mb-[16px]">Restart</button>
+        <button class="btn btn-gray btn-large mb-[16px]">New Game</button>
+        <button id="resume-btn" class="btn btn-gray btn-large">Resume Game</button>
+    </div> <!-- End mobile navbar modal -->
+
+    <main class="w-[100%] relative h-[100vh]">
+        <div class="bg-green-500 w-[90%] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">
+            <div class="grid grid-cols-4">
+                <button class="btn btn-small btn-gray">1</button>
+                <button class="btn btn-small btn-gray">1</button>
+                <button class="btn btn-small btn-gray">1</button>
+                <button class="btn btn-small btn-gray">1</button>
+                <button class="btn btn-small btn-gray">1</button>
+                <button class="btn btn-small btn-gray">1</button>
+                <button class="btn btn-small btn-gray">1</button>
+            </div>
+        </div>
+    </main>
+
     <script src="./../dist/bundle.js"></script>
 </body>
 </html>

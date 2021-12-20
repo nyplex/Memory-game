@@ -1,3 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    .btn {
+        @apply font-Aktinson font-bold rounded-full;
+    }
+}
+
+@layer components {
+    .btn-large {
+        @apply text-[18px] py-[12px];
+    }
+
+    .btn-small {
+        @apply px-[18px] py-[10px] text-[16px];
+    }
+
+    .btn-yellow {
+        @apply bg-[#FDA214] hover:bg-[#FFB84A] text-white;
+    }
+
+    .btn-gray {
+        @apply bg-[#DFE7EC] hover:bg-[#6395B8] text-[#304859] hover:text-white;
+    }
+
+    .active {
+        @apply bg-[#304859] text-white hover:bg-[#304859];
+    }
+}
