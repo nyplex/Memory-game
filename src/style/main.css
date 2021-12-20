@@ -45,4 +45,16 @@
         @apply bg-[#304859] w-full rounded-full aspect-square relative hover:cursor-pointer;
     }
 
+    .memory-number {
+        @apply text-white font-Aktinson font-bold text-center text-4xl absolute-align;
+    }
+
+    .matched {
+        @apply bg-[#FDA214];
+    }
+
+    .checked {
+        @apply bg-[#BCCED9];
+    }
+
 }
