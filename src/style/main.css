@@ -40,8 +40,9 @@
     .active {
         @apply bg-[#304859] text-white hover:bg-[#304859];
     }
-}
 
-.test {
-    aspect-ratio: 1/1;
+    .icon-holder {
+        @apply bg-[#304859] w-full rounded-full aspect-square relative hover:cursor-pointer;
+    }
+
 }
