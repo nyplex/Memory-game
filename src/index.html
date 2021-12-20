@@ -12,10 +12,11 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./../../dist/output.css">
 </head>
-<body class="max-h-[100vh] overflow-hidden">
+<body class="max-h-[100vh]">
+
     <!-- Start Game Container -->
     <div class="z-50 bg-[#152938] w-[100vw] h-[100vh] absolute hidden">
-        <div class="absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] w-[90%] max-w-screen-sm">
+        <div class="absolute-align w-[90%] max-w-screen-sm">
             <h1 class="text-white text-center text-4xl font-bold mb-[45px]">memory</h1>
             <div class="bg-white p-[24px] rounded-xl shadow-sm shadow-gray-500">
                 <div class="mb-6">
@@ -45,8 +46,38 @@
             </div>
         </div>
     </div><!-- End start game container -->
+
+
+    <!-- Multiplayer Modal Winner -->
+    <div id="" class="w-[100vw] h-[100vh] bg-black opacity-70 absolute z-10 top-0 "></div>
+    <div id="" class="flex-col bg-white w-[90%] absolute-align p-[24px] rounded-xl shadow-lg z-20 max-w-screen-md">
+        <h3 class="text-[#152938] font-bold font-Aktinson text-center text-4xl">Player 3 Wins!</h3>
+        <p class="text-[#7191A5] text-center font-bold font-Aktinson text-xl mb-4">Game over! Here are the results...</p>
+        <div class="bg-[#152938] text-white multi-winner-container">
+            <p class="sm:text-xl text-lg">Player 3 (Winner)</p>
+            <h6 class="sm:text-4xl text-2xl">8 Pairs</h6>
+        </div>
+        <div class="bg-[#DFE7EC] text-[#304859] multi-winner-container">
+            <p class="sm:text-xl text-lg text-[#7191A5]">Player 2</p>
+            <h6 class="sm:text-4xl text-2xl">2 Pairs</h6>
+        </div>
+        <div class="bg-[#DFE7EC] text-[#304859] multi-winner-container">
+            <p class="sm:text-xl text-lg text-[#7191A5]">Player 1</p>
+            <h6 class="sm:text-4xl text-2xl">4 Pairs</h6>
+        </div>
+        <div class="bg-[#DFE7EC] text-[#304859] multi-winner-container">
+            <p class="sm:text-xl text-lg text-[#7191A5]">Player 4</p>
+            <h6 class="sm:text-4xl text-2xl">4 Pairs</h6>
+        </div>
+        <div class="flex sm:flex-row flex-col justify-around w-[90%] mx-auto mt-8">
+            <button class="btn btn-yellow btn-large mb-4 sm:mb-0 sm:w-[50%] w-full mr-8">Restart</button>
+            <button class="btn btn-gray btn-large sm:w-[50%] w-full">Setup New Game</button>
+        </div>
+    </div><!-- End Multiplayer Modal Winner -->
+
+
     <!-- Navbar - header -->
-    <header class="z-0">
+    <header class="z-0 max-w-screen-lg mx-auto">
         <div class="flex flex-row justify-between items-center p-[24px]">
             <h1 class="text-[#152938] font-Aktinson font-bold text-[28px]">memory</h1>
             <button id="menu-btn" class="btn btn-yellow btn-small sm:hidden">MENU</button>
@@ -56,6 +87,7 @@
             </div>
         </div>
     </header><!-- End navbar - header -->
+
     <!-- Mobile Navbar modal -->
     <div id="mobile-menu-bg" class="w-[100vw] h-[100vh] bg-black opacity-70 absolute z-10 top-0 hidden sm:hidden"></div>
     <div id="mobile-menu" class="hidden flex-col bg-white w-[90%] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] p-[24px] rounded-xl shadow-lg z-20 sm:hidden">
@@ -64,19 +96,89 @@
         <button id="resume-btn" class="btn btn-gray btn-large">Resume Game</button>
     </div> <!-- End mobile navbar modal -->
 
-    <main class="w-[100%] relative h-[100vh]">
-        <div class="bg-green-500 w-[90%] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">
-            <div class="grid grid-cols-4">
-                <button class="btn btn-small btn-gray">1</button>
-                <button class="btn btn-small btn-gray">1</button>
-                <button class="btn btn-small btn-gray">1</button>
-                <button class="btn btn-small btn-gray">1</button>
-                <button class="btn btn-small btn-gray">1</button>
-                <button class="btn btn-small btn-gray">1</button>
-                <button class="btn btn-small btn-gray">1</button>
+
+    <div class="w-[90%] max-w-[460px] absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">
+        <div class="grid grid-cols-6 max-w-screen-md mx-auto place-items-center gap-3 sm:gap-6 sm:py-6 py-3">
+            <div class="bg-[#FDA214] test w-full rounded-full relative hover:cursor-pointer">
+                <h4 class="text-white font-Aktinson font-bold text-center text-4xl absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">4</h4>
             </div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#FDA214] test w-full rounded-full relative hover:cursor-pointer">
+                <h4 class="text-white font-Aktinson font-bold text-center text-4xl absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">9</h4>
+            </div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#FDA214] test w-full rounded-full relative hover:cursor-pointer">
+                <h4 class="text-white font-Aktinson font-bold text-center text-4xl absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">4</h4>
+            </div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#FDA214] test w-full rounded-full relative hover:cursor-pointer">
+                <h4 class="text-white font-Aktinson font-bold text-center text-4xl absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">16</h4>
+            </div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#FDA214] test w-full rounded-full relative hover:cursor-pointer">
+                <h4 class="text-white font-Aktinson font-bold text-center text-4xl absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">9</h4>
+            </div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#BCCED9] test w-full rounded-full relative">
+                <h4 class="text-white font-Aktinson font-bold text-center text-4xl absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">11</h4>
+            </div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#FDA214] test w-full rounded-full relative hover:cursor-pointer">
+                <h4 class="text-white font-Aktinson font-bold text-center text-4xl absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%]">16</h4>
+            </div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
+            <div class="bg-[#304859] test w-full rounded-full"></div>
         </div>
-    </main>
+    </div>
+
+
+    <div class="flex flex-row absolute bottom-[24px] max-w-screen-lg w-full transform left-[50%] translate-x-[-50%] sm:px-6 px-2 gap-4 justify-evenly">
+        <div class="w-[25%] bg-[#DFE7EC] py-[17px] px-[24px] sm:flex sm:flex-row justify-between items-center rounded-lg text-center">
+            <span class="hidden sm:block font-bold font-Aktinson font-xl text-[#7191A5]">Player 1</span>
+            <span class="block sm:hidden font-bold font-Aktinson font-xl text-[#7191A5]">P1</span>
+            <span class="block font-bold font-Aktinson text-2xl text-[#304859]">4</span>
+        </div>
+        <div class="w-[25%] bg-[#FDA214] py-[17px] px-[24px] sm:flex sm:flex-row justify-between items-center rounded-lg text-center">
+            <span class="hidden sm:block font-bold font-Aktinson font-xl text-white">Player 2</span>
+            <span class="block sm:hidden font-bold font-Aktinson font-xl text-white">P2</span>
+            <span class="block font-bold font-Aktinson text-2xl text-white">0</span>
+        </div>
+        <div class="w-[25%] bg-[#DFE7EC] py-[17px] px-[24px] sm:flex sm:flex-row justify-between items-center rounded-lg text-center">
+            <span class="hidden sm:block font-bold font-Aktinson font-xl text-[#7191A5]">Player 3</span>
+            <span class="block sm:hidden font-bold font-Aktinson font-xl text-[#7191A5]">P3</span>
+            <span class="block font-bold font-Aktinson text-2xl text-[#304859]">6</span>
+        </div>
+        <div class="w-[25%] bg-[#DFE7EC] py-[17px] px-[24px] sm:flex sm:flex-row justify-between items-center rounded-lg text-center">
+            <span class="hidden sm:block font-bold font-Aktinson font-xl text-[#7191A5]">Player 4</span>
+            <span class="block sm:hidden font-bold font-Aktinson font-xl text-[#7191A5]">P4</span>
+            <span class="block font-bold font-Aktinson text-2xl text-[#304859]">4</span>
+        </div>
+    </div>
 
     <script src="./../dist/bundle.js"></script>
 </body>

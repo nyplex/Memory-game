@@ -4,9 +4,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .absolute-align {
+        @apply absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%];
+    }
+}
+
 @layer base {
     .btn {
         @apply font-Aktinson font-bold rounded-full;
+    }
+
+    .multi-winner-container {
+        @apply rounded-lg flex flex-row font-bold font-Aktinson py-2 px-2 sm:py-4 sm:px-7 mx-auto sm:justify-between justify-around items-center text-center mb-4 w-[90%];
     }
 }
 
@@ -30,4 +40,8 @@
     .active {
         @apply bg-[#304859] text-white hover:bg-[#304859];
     }
+}
+
+.test {
+    aspect-ratio: 1/1;
 }
