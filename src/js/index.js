@@ -1,3 +1,4 @@
-import { navbar } from "./navbar"
+import { navbar, run } from "./navbar"
 
 navbar()
+run()
