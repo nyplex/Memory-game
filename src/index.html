@@ -18,31 +18,31 @@
     <div id="starting-game" class="z-50 bg-[#152938] w-[100vw] h-[100vh] absolute hidden">
         <div class="absolute-align w-[90%] max-w-screen-sm">
             <h1 class="text-white text-center text-4xl font-bold mb-[45px]">memory</h1>
-            <div class="bg-white p-[24px] rounded-xl shadow-sm shadow-gray-500">
+            <div class="bg-white p-[24px] rounded-xl shadow-sm shadow-gray-500" id="setup-container">
                 <div class="mb-6">
                     <h3 class="text-[#7191A5] font-Aktinson font-bold mb-3">Select Theme</h3>
                     <div class="w-full flex flex-row justify-between">
-                        <button class="btn btn-gray btn-small active w-[50%] mr-2">Numbers</button>
-                        <button class="btn btn-gray btn-small w-[50%] ml-2">Icons</button>
+                        <button data-theme="numbers" class="btn btn-gray btn-small active w-[50%] mr-2">Numbers</button>
+                        <button data-theme="icons" class="btn btn-gray btn-small w-[50%] ml-2">Icons</button>
                     </div>
                 </div>
                 <div class="mb-6">
                     <h3 class="text-[#7191A5] font-Aktinson font-bold mb-3">Numbers of Players</h3>
                     <div class="w-full flex flex-row justify-between">
-                        <button class="btn btn-gray btn-small active w-[25%] mr-1">1</button>
-                        <button class="btn btn-gray btn-small w-[25%] ml-1 mr-1">2</button>
-                        <button class="btn btn-gray btn-small w-[25%] mr-1 ml-1">3</button>
-                        <button class="btn btn-gray btn-small w-[25%] ml-1">4</button>
+                        <button data-players="1" class="btn btn-gray btn-small active w-[25%] mr-1">1</button>
+                        <button data-players="2" class="btn btn-gray btn-small w-[25%] ml-1 mr-1">2</button>
+                        <button data-players="3" class="btn btn-gray btn-small w-[25%] mr-1 ml-1">3</button>
+                        <button data-players="4" class="btn btn-gray btn-small w-[25%] ml-1">4</button>
                     </div>
                 </div>
                 <div class="mb-6">
                     <h3 class="text-[#7191A5] font-Aktinson font-bold mb-3">Grid Size</h3>
                     <div class="w-full flex flex-row justify-between">
-                        <button class="btn btn-gray btn-small active w-[50%] mr-2">4x4</button>
-                        <button class="btn btn-gray btn-small w-[50%] ml-2">6x6</button>
+                        <button data-grid="4" class="btn btn-gray btn-small active w-[50%] mr-2">4x4</button>
+                        <button data-grid="6" class="btn btn-gray btn-small w-[50%] ml-2">6x6</button>
                     </div>
                 </div>
-                <button id="start-btn" class="btn btn-yellow btn-large w-full">Start Game</button>
+                <button class="btn btn-yellow btn-large w-full">Start Game</button>
             </div>
         </div>
     </div><!-- End start game container -->
@@ -53,19 +53,19 @@
     <div id="" class="hidden flex-col bg-white w-[90%] absolute-align p-[24px] rounded-xl shadow-lg z-20 max-w-screen-md">
         <h3 class="text-[#152938] font-bold font-Aktinson text-center text-4xl">Player 3 Wins!</h3>
         <p class="text-[#7191A5] text-center font-bold font-Aktinson text-xl mb-4">Game over! Here are the results...</p>
-        <div class="bg-[#152938] text-white w-[90%] multi-winner-container">
+        <div class="bg-[#152938] text-white multi-winner-container">
             <p class="sm:text-xl text-lg">Player 3 (Winner)</p>
             <h6 class="sm:text-4xl text-2xl">8 Pairs</h6>
         </div>
-        <div class="bg-[#DFE7EC] text-[#304859] w-[90%] multi-winner-container">
+        <div class="bg-[#DFE7EC] text-[#304859] multi-winner-container">
             <p class="sm:text-xl text-lg text-[#7191A5]">Player 2</p>
             <h6 class="sm:text-4xl text-2xl">2 Pairs</h6>
         </div>
-        <div class="bg-[#DFE7EC] text-[#304859] w-[90%] multi-winner-container">
+        <div class="bg-[#DFE7EC] text-[#304859] multi-winner-container">
             <p class="sm:text-xl text-lg text-[#7191A5]">Player 1</p>
             <h6 class="sm:text-4xl text-2xl">4 Pairs</h6>
         </div>
-        <div class="bg-[#DFE7EC] text-[#304859] w-[90%] multi-winner-container">
+        <div class="bg-[#DFE7EC] text-[#304859] multi-winner-container">
             <p class="sm:text-xl text-lg text-[#7191A5]">Player 4</p>
             <h6 class="sm:text-4xl text-2xl">4 Pairs</h6>
         </div>

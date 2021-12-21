@@ -1,0 +1,23 @@
+- launch setup game window
+- Listening for user to set up the game & update the Game class
+- Listening for user to start game 
+- Generate the grid 
+- Listening for user to click on the first icon 
+- save in class the first icon 
+- Listening for user to click on the second icon 
+- compare both icon 
+
+
+////////////////////
+
+keep track of: 
+
+-theme 
+-numbers of player
+-grid size
+-first icon 
+-second icon 
+-timing
+-player's turn 
+-player's score
+-icon left to discover 
