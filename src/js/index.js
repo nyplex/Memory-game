@@ -1,7 +1,15 @@
-import { navbar, run } from "./navbar"
+import { navbar } from "./navbar"
+import { displaySetup } from "./display"
+import { Game } from "./Game"
+import { runGame } from "./run"
+
+
+const game = new Game("numbers", 1, 4)
 
 navbar()
-run()
+displaySetup()
+
+
 
 $("#setup-container").on("click", (e) => {
     if(e.target.localName != "button") {
@@ -12,19 +20,29 @@ $("#setup-container").on("click", (e) => {
 
     switch (dataKeys) {
         case "theme":
-            console.log($(e.target).data("theme"));
+            game.theme = $(e.target).data("theme")
+            $('*[data-theme]').removeClass("active")
+            $(e.target).addClass("active")
             break;
         
         case "players":
-            console.log($(e.target).data("players"));
+            game.players = $(e.target).data("players")
+            $('*[data-players]').removeClass("active")
+            $(e.target).addClass("active")
             break;
         
         case "grid":
-            console.log($(e.target).data("grid"));
+            game.grid = $(e.target).data("grid")
+            $('*[data-grid]').removeClass("active")
+            $(e.target).addClass("active")
             break;
     
         default:
             break;
     }
 
+})
+
+$("#start-game-btn").on("click", () => {
+    runGame(game)
 })

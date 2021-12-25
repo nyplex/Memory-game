@@ -8,6 +8,7 @@
     .absolute-align {
         @apply absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%];
     }
+
 }
 
 @layer base {
@@ -42,7 +43,7 @@
     }
 
     .icon-holder {
-        @apply bg-[#304859] w-full rounded-full aspect-square relative hover:cursor-pointer;
+        @apply bg-[#304859] w-full rounded-full aspect-square relative hover:cursor-pointer hover:bg-[#6395B8];
     }
 
     .memory-number {
@@ -57,4 +58,12 @@
         @apply bg-[#BCCED9];
     }
 
+}
+
+.col4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.col6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
 }

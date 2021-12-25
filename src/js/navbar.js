@@ -8,11 +8,3 @@ export let navbar = () => {
         $("#mobile-menu").removeClass("flex").addClass("hidden")
     })
 }
-
-
-export let run = () => {
-    $("#starting-game").toggleClass("hidden")
-    $("#start-btn").on("click", () => {
-        $("#starting-game").toggleClass("hidden")
-    })
-}
