@@ -10,17 +10,63 @@ export class Game {
         this.second = null
         this.playersData = []
         this.playersTurn = 0
+        this.iconsFound = []
     }
 
-    generateGamePlay(){
-        this.#generateGrid(this.grid)
-        this.#generatePlayerDisplay(this.players)
+    generateGamePlay() {
+        this.#generateGamePlay(this.grid)
         this.#setupPlayersData()
-        if(this.players == 1) timer()
-        
+        this.#play()
     }
 
-    #setupPlayersData(){
+    #play() {
+        $("#grid-container").on("click", (e) => {
+            if(!$(e.target).hasClass("icon-holder")) {
+                return
+            }
+            if(this.iconsFound.includes($(e.target).data("id"))) {
+                return
+            }
+            if(this.first === null && this.second === null) {
+                this.first = $(e.target).data("id")
+
+            }else if (this.first != null && this.second === null) {
+                this.second = $(e.target).data("id")
+                this.#checkMatch()
+            }
+        })
+    }
+
+    #checkMatch() {
+        console.log(this.iconsFound);
+        this.#updateMoves()
+        if(this.first === this.second) {
+            this.playersData[this.playersTurn].score += 1
+            this.iconsFound.push(this.first)
+            console.log("5. won");
+        }else{
+            console.log("5. lost");
+        }
+        this.#whosTurn()
+        console.log(this.playersData);
+        this.first = null
+        this.second = null
+
+    }
+
+    #whosTurn() {
+        if((this.playersTurn + 1) == this.playersData.length) {
+            this.playersTurn = 0
+        }else if(this.players === 1) {
+            this.playersTurn = 0
+        }else{
+            this.playersTurn += 1
+        }
+        $(".multiplayer-container").removeClass("yourTurn")
+        $(`#player-container-${this.playersTurn + 1}`).addClass("yourTurn")
+    }
+
+    #setupPlayersData() {
         for(let i = 1; i <= this.players; i++) {
             this.playersData.push({
                 playerID: i,
@@ -30,7 +76,7 @@ export class Game {
         }
     }
     
-    #generateGrid(gridSize) {
+    #generateGamePlay(gridSize) {
         this.#generateIds()
         if(gridSize != 4 && gridSize != 6){
             return
@@ -45,9 +91,11 @@ export class Game {
             let index = Math.floor(Math.random()*this.ids.length)
             let id = this.ids[index];
             this.ids.splice(index, 1)
-            html += `<div class='icon-holder' data-id='${id}'></div>`
+            html += `<div class='icon-holder' id="icon-holder-${i + 1}" data-id='${id}'></div>`
         }
         $("#grid-container").append(html)
+        this.#generatePlayerDisplay(this.players)
+        if(this.players == 1) timer()
     }
 
     #generatePlayerDisplay(players) {
@@ -58,11 +106,11 @@ export class Game {
         if(players === 1) {
             html = `<div class="w-[25%] bg-[#DFE7EC] py-[17px] px-[24px] sm:flex sm:flex-row justify-between items-center rounded-lg text-center">
                         <span class="sm:block font-bold font-Aktinson font-xl text-[#7191A5]">Time</span>
-                        <span class="block font-bold font-Aktinson text-2xl text-[#304859]" id="timer-container">00:00</span>
+                        <span class="block font-bold font-Aktinson text-2xl text-[#304859]" id="timer-container"><span id="min-timer">00</span>:<span id="sec-timer">00</span></span>
                     </div>
                     <div class="w-[25%] bg-[#DFE7EC] py-[17px] px-[24px] sm:flex sm:flex-row justify-between items-center rounded-lg text-center">
                         <span class="sm:block font-bold font-Aktinson font-xl text-[#7191A5]">Moves</span>
-                        <span class="block font-bold font-Aktinson text-2xl text-[#304859]">39</span>
+                        <span class="block font-bold font-Aktinson text-2xl text-[#304859]" id="moves-container">0</span>
                     </div>`
         }else {
             for(let i = 0; i < players; i++) {
@@ -74,6 +122,7 @@ export class Game {
             }
         }
         $("#players-container").append(html)
+        $("#player-container-1").addClass("yourTurn")
     }
 
     #generateIds() {
@@ -84,5 +133,10 @@ export class Game {
             ids.push(i + 1)
         }
         this.ids = ids
+    }
+
+    #updateMoves(){
+        this.playersData[this.playersTurn].move += 1
+        $("#moves-container").text(this.playersData[this.playersTurn].move)
     }
 }

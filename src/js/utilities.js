@@ -1,7 +1,8 @@
-export let timer = () => {
-    let sec = 0
-    let min = 0
-    setInterval(() => {
+var interval
+export let timer = (s, m) => {
+    let sec = (s) ? s : 0
+    let min = (m) ? m : 0
+    interval = setInterval(() => {
         if(sec >= 59) {
             min += 1
             sec = 0
@@ -20,6 +21,17 @@ export let timer = () => {
         }else{
             secString = sec.toString()
         }
-        $("#timer-container").text(minString + ":" + secString)
+        $("#min-timer").text(minString)
+        $("#sec-timer").text(secString)
     }, 1000);
+}
+
+export let pauseTimer = () => {
+    clearInterval(interval)
+}
+
+export let resumeTimer = () => {
+    let sec = parseInt($("#sec-timer").text())
+    let min = parseInt($("#min-timer").text())
+    timer(sec, min)
 }
