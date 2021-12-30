@@ -29,9 +29,20 @@ export class Game {
             }
             if(this.first === null && this.second === null) {
                 this.first = $(e.target).data("id")
-
+                if(this.theme === "numbers") {
+                    $(e.target).children("h4").removeClass("hidden")
+                }else{
+                    $(e.target).children("img").removeClass("hidden")
+                    //$(e.target).append(`<img class="memory-number" src="assets/icons/${this.first}.svg"/>`)
+                }
             }else if (this.first != null && this.second === null) {
                 this.second = $(e.target).data("id")
+                if(this.theme === "numbers") {
+                    $(e.target).children("h4").removeClass("hidden")
+                }else{
+                    $(e.target).children("img").removeClass("hidden")
+                    //$(e.target).append(`<img class="memory-number" src="assets/icons/${this.second}.svg"/>`)
+                }
                 this.#checkMatch()
             }
         })
@@ -43,18 +54,35 @@ export class Game {
         if(this.first === this.second) {
             this.playersData[this.playersTurn].score += 1
             this.iconsFound.push(this.first)
-            console.log("5. won");
+            this.#whosTurn(true)
         }else{
-            console.log("5. lost");
+            setTimeout(() => {
+                $(`*[data-id="${this.first}"]`).children("h4, img").addClass("hidden")
+                $(`*[data-id="${this.second}"]`).children("h4, img").addClass("hidden")
+            }, 500)
+            this.#whosTurn()
         }
-        this.#whosTurn()
-        console.log(this.playersData);
-        this.first = null
-        this.second = null
 
+        setTimeout(() => {
+            this.#displayMultiplayerScore()
+            this.first = null
+            this.second = null
+        }, 600)
     }
 
-    #whosTurn() {
+    #displayMultiplayerScore() {
+        if(this.players === 1) {
+            return
+        }
+        this.playersData.forEach(player => {
+            $(`#multiplayer-score-${player.playerID}`).text(player.score)
+        });
+    }
+
+    #whosTurn(playAgain) {
+        if(playAgain){
+            return
+        }
         if((this.playersTurn + 1) == this.playersData.length) {
             this.playersTurn = 0
         }else if(this.players === 1) {
@@ -91,7 +119,10 @@ export class Game {
             let index = Math.floor(Math.random()*this.ids.length)
             let id = this.ids[index];
             this.ids.splice(index, 1)
-            html += `<div class='icon-holder' id="icon-holder-${i + 1}" data-id='${id}'></div>`
+            html += `<div class='icon-holder' id="icon-holder-${i + 1}" data-id='${id}'>
+                        <h4 class="memory-number hidden">${id}</h4>
+                        <img class="memory-number hidden w-[50%]" src="assets/icons/${id}.svg">
+                    </div>`
         }
         $("#grid-container").append(html)
         this.#generatePlayerDisplay(this.players)
@@ -117,7 +148,7 @@ export class Game {
                 html += `<div id="player-container-${i+1}" class="w-[25%] bg-[#DFE7EC]  py-[17px] px-[24px] sm:flex sm:flex-row justify-between items-center rounded-lg text-center multiplayer-container">
                             <span class="hidden sm:block font-bold font-Aktinson font-xl text-[#7191A5]">Player ${i + 1}</span>
                             <span class="block sm:hidden font-bold font-Aktinson font-xl text-[#7191A5]">P${i+ 1}</span>
-                            <span class="block font-bold font-Aktinson text-2xl text-[#304859]">4</span>
+                            <span id="multiplayer-score-${i+1}" class="block font-bold font-Aktinson text-2xl text-[#304859]">0</span>
                         </div>`
             }
         }
