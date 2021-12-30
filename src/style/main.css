@@ -43,7 +43,7 @@
     }
 
     .icon-holder {
-        @apply bg-[#304859] w-full rounded-full aspect-square relative hover:cursor-pointer hover:bg-[#6395B8];
+        @apply bg-[#304859] w-full rounded-full aspect-square relative hover:cursor-pointer;
     }
 
     .memory-number {
@@ -69,5 +69,13 @@
 }
 
 .yourTurn {
+    background-color: #FDA214;
+}
+
+.icon-pending {
+    background-color: #BCCED9;
+}
+
+.icon-matched {
     background-color: #FDA214;
 }

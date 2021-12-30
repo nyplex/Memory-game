@@ -30,6 +30,12 @@ export let pauseTimer = () => {
     clearInterval(interval)
 }
 
+export let resetTimer = () => {
+    clearInterval(interval)
+    $("#sec-timer").text("00")
+    $("#min-timer").text("00")
+}
+
 export let resumeTimer = () => {
     let sec = parseInt($("#sec-timer").text())
     let min = parseInt($("#min-timer").text())

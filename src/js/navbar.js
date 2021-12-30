@@ -11,4 +11,8 @@ export let navbar = () => {
         $("#mobile-menu").removeClass("flex").addClass("hidden")
         resumeTimer()
     })
+    $("#restart-game-mb").on("click", () => {
+        $("#mobile-menu-bg").addClass("hidden")
+        $("#mobile-menu").removeClass("flex").addClass("hidden")
+    })
 }

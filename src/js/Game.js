@@ -29,6 +29,7 @@ export class Game {
             }
             if(this.first === null && this.second === null) {
                 this.first = $(e.target).data("id")
+                $(e.target).addClass("icon-pending")
                 if(this.theme === "numbers") {
                     $(e.target).children("h4").removeClass("hidden")
                 }else{
@@ -37,6 +38,7 @@ export class Game {
                 }
             }else if (this.first != null && this.second === null) {
                 this.second = $(e.target).data("id")
+                $(e.target).addClass("icon-pending")
                 if(this.theme === "numbers") {
                     $(e.target).children("h4").removeClass("hidden")
                 }else{
@@ -49,15 +51,21 @@ export class Game {
     }
 
     #checkMatch() {
-        console.log(this.iconsFound);
+        if(this.iconsFound.length + 1 == ((this.grid * this.grid) / 2)) {
+            this.#displayScore()
+        }
         this.#updateMoves()
         if(this.first === this.second) {
+            $(`*[data-id="${this.first}"]`).removeClass("icon-pending, hover:bg-[#6395B8]")
+            $(`*[data-id="${this.first}"]`).addClass("icon-matched")
             this.playersData[this.playersTurn].score += 1
             this.iconsFound.push(this.first)
             this.#whosTurn(true)
         }else{
             setTimeout(() => {
+                $(`*[data-id="${this.first}"]`).removeClass("icon-pending")
                 $(`*[data-id="${this.first}"]`).children("h4, img").addClass("hidden")
+                $(`*[data-id="${this.second}"]`).removeClass("icon-pending")
                 $(`*[data-id="${this.second}"]`).children("h4, img").addClass("hidden")
             }, 500)
             this.#whosTurn()
@@ -68,6 +76,10 @@ export class Game {
             this.first = null
             this.second = null
         }, 600)
+    }
+
+    #displayScore() {
+        $("#final-modal, #final-bg-modal").removeClass("hidden")
     }
 
     #displayMultiplayerScore() {
@@ -112,14 +124,14 @@ export class Game {
 
         const grid = gridSize * gridSize
         let html = ""
-
+        $("#grid-container").removeClass("col4, col6")
         $("#grid-container").addClass(`col${gridSize}`)
 
         for(let i = 0; i < grid; i++){
             let index = Math.floor(Math.random()*this.ids.length)
             let id = this.ids[index];
             this.ids.splice(index, 1)
-            html += `<div class='icon-holder' id="icon-holder-${i + 1}" data-id='${id}'>
+            html += `<div class='icon-holder hover:bg-[#6395B8]' id="icon-holder-${i + 1}" data-id='${id}'>
                         <h4 class="memory-number hidden">${id}</h4>
                         <img class="memory-number hidden w-[50%]" src="assets/icons/${id}.svg">
                     </div>`
