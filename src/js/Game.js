@@ -8,27 +8,27 @@ export class Game {
         this.ids = null
         this.first = null
         this.second = null
+        this.playersData = []
+        this.playersTurn = 0
     }
 
     generateGamePlay(){
         this.#generateGrid(this.grid)
         this.#generatePlayerDisplay(this.players)
+        this.#setupPlayersData()
         if(this.players == 1) timer()
-        this.#listenIcons()
+        this.launchRound()
         
     }
 
-    #listenIcons() {
-        $("#grid-container").on("click", (e) => {
-            const {target} = e
-            if(!$(target).hasClass("icon-holder")){
-                return
-            }
-            if(this.first === null && this.second === null) {
-                this.first = target
-            }
-            console.log(this.first);
-        })
+    #setupPlayersData(){
+        for(let i = 1; i <= this.players; i++) {
+            this.playersData.push({
+                playerID: i,
+                score: 0,
+                move: 0,
+            })
+        }
     }
     
     #generateGrid(gridSize) {
@@ -57,17 +57,17 @@ export class Game {
         }
         let html = ""
         if(players === 1) {
-            html = `<div id="player-container-1" class="w-[25%] bg-[#DFE7EC] py-[17px] px-[24px] sm:flex sm:flex-row justify-between items-center rounded-lg text-center">
+            html = `<div class="w-[25%] bg-[#DFE7EC] py-[17px] px-[24px] sm:flex sm:flex-row justify-between items-center rounded-lg text-center">
                         <span class="sm:block font-bold font-Aktinson font-xl text-[#7191A5]">Time</span>
                         <span class="block font-bold font-Aktinson text-2xl text-[#304859]" id="timer-container">00:00</span>
                     </div>
-                    <div id="player-container-1" class="w-[25%] bg-[#DFE7EC] py-[17px] px-[24px] sm:flex sm:flex-row justify-between items-center rounded-lg text-center">
+                    <div class="w-[25%] bg-[#DFE7EC] py-[17px] px-[24px] sm:flex sm:flex-row justify-between items-center rounded-lg text-center">
                         <span class="sm:block font-bold font-Aktinson font-xl text-[#7191A5]">Moves</span>
                         <span class="block font-bold font-Aktinson text-2xl text-[#304859]">39</span>
                     </div>`
         }else {
             for(let i = 0; i < players; i++) {
-                html += `<div id="player-container-${i+1}" class="w-[25%] bg-[#DFE7EC] py-[17px] px-[24px] sm:flex sm:flex-row justify-between items-center rounded-lg text-center">
+                html += `<div id="player-container-${i+1}" class="w-[25%] bg-[#DFE7EC]  py-[17px] px-[24px] sm:flex sm:flex-row justify-between items-center rounded-lg text-center multiplayer-container">
                             <span class="hidden sm:block font-bold font-Aktinson font-xl text-[#7191A5]">Player ${i + 1}</span>
                             <span class="block sm:hidden font-bold font-Aktinson font-xl text-[#7191A5]">P${i+ 1}</span>
                             <span class="block font-bold font-Aktinson text-2xl text-[#304859]">4</span>

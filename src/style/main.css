@@ -67,3 +67,7 @@
 .col6 {
     grid-template-columns: repeat(6, minmax(0, 1fr));
 }
+
+.yourTurn {
+    background-color: #FDA214;
+}
