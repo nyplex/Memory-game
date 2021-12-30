@@ -17,7 +17,6 @@ export class Game {
         this.#generatePlayerDisplay(this.players)
         this.#setupPlayersData()
         if(this.players == 1) timer()
-        this.launchRound()
         
     }
 
