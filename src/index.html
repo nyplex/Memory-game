@@ -51,23 +51,15 @@
     <!-- Multiplayer Modal Winner -->
     <div id="final-bg-modal" class="hidden w-[100vw] h-[100vh] bg-black opacity-70 absolute z-10 top-0 "></div>
     <div id="final-modal" class="hidden flex-col bg-white w-[90%] absolute-align p-[24px] rounded-xl shadow-lg z-20 max-w-screen-md">
-        <h3 class="text-[#152938] font-bold font-Aktinson text-center text-4xl">Player 3 Wins!</h3>
-        <p class="text-[#7191A5] text-center font-bold font-Aktinson text-xl mb-4">Game over! Here are the results...</p>
-        <div class="bg-[#152938] text-white multi-winner-container">
-            <p class="sm:text-xl text-lg">Player 3 (Winner)</p>
-            <h6 class="sm:text-4xl text-2xl">8 Pairs</h6>
+        <h3 class="text-[#152938] font-bold font-Aktinson text-center text-4xl">You did it!</h3>
+        <p id="final-score-para" class="text-[#7191A5] text-center font-bold font-Aktinson text-xl mb-4">Game over! Here's how your got on...</p>
+        <div id="time-elapsed-container" class="bg-[#DFE7EC] text-[#304859] multi-winner-container">
+            <p class="sm:text-xl text-lg text-[#7191A5]">Time Elapsed</p>
+            <h6 class="sm:text-4xl text-2xl"><span id="min-elapsed">1</span>:<span id="sec-elapsed">53</span></h6>
         </div>
-        <div class="bg-[#DFE7EC] text-[#304859] multi-winner-container">
-            <p class="sm:text-xl text-lg text-[#7191A5]">Player 2</p>
-            <h6 class="sm:text-4xl text-2xl">2 Pairs</h6>
-        </div>
-        <div class="bg-[#DFE7EC] text-[#304859] multi-winner-container">
-            <p class="sm:text-xl text-lg text-[#7191A5]">Player 1</p>
-            <h6 class="sm:text-4xl text-2xl">4 Pairs</h6>
-        </div>
-        <div class="bg-[#DFE7EC] text-[#304859] multi-winner-container">
-            <p class="sm:text-xl text-lg text-[#7191A5]">Player 4</p>
-            <h6 class="sm:text-4xl text-2xl">4 Pairs</h6>
+        <div id="moves-taken-container" class="bg-[#DFE7EC] text-[#304859] multi-winner-container">
+            <p class="sm:text-xl text-lg text-[#7191A5]">Moves Taken</p>
+            <h6 id="moves-taken" class="sm:text-4xl text-2xl">39 Moves</h6>
         </div>
         <div class="flex sm:flex-row flex-col justify-around w-[90%] mx-auto mt-8">
             <button class="btn btn-yellow btn-large mb-4 sm:mb-0 sm:w-[50%] w-full mr-8">Restart</button>

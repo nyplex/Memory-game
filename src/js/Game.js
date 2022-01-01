@@ -1,3 +1,4 @@
+import { displayFinalScore } from "./display"
 import { ListenIconClick, timer } from "./utilities"
 
 export class Game {
@@ -34,7 +35,6 @@ export class Game {
                     $(e.target).children("h4").removeClass("hidden")
                 }else{
                     $(e.target).children("img").removeClass("hidden")
-                    //$(e.target).append(`<img class="memory-number" src="assets/icons/${this.first}.svg"/>`)
                 }
             }else if (this.first != null && this.second === null) {
                 this.second = $(e.target).data("id")
@@ -43,7 +43,6 @@ export class Game {
                     $(e.target).children("h4").removeClass("hidden")
                 }else{
                     $(e.target).children("img").removeClass("hidden")
-                    //$(e.target).append(`<img class="memory-number" src="assets/icons/${this.second}.svg"/>`)
                 }
                 this.#checkMatch()
             }
@@ -51,8 +50,9 @@ export class Game {
     }
 
     #checkMatch() {
+        displayFinalScore(this)
         if(this.iconsFound.length + 1 == ((this.grid * this.grid) / 2)) {
-            this.#displayScore()
+            displayFinalScore(this)
         }
         this.#updateMoves()
         if(this.first === this.second) {
@@ -76,10 +76,6 @@ export class Game {
             this.first = null
             this.second = null
         }, 600)
-    }
-
-    #displayScore() {
-        $("#final-modal, #final-bg-modal").removeClass("hidden")
     }
 
     #displayMultiplayerScore() {
