@@ -50,17 +50,19 @@ export class Game {
     }
 
     #checkMatch() {
-        displayFinalScore(this)
-        if(this.iconsFound.length + 1 == ((this.grid * this.grid) / 2)) {
-            displayFinalScore(this)
-        }
         this.#updateMoves()
+        //displayFinalScore(this)
         if(this.first === this.second) {
             $(`*[data-id="${this.first}"]`).removeClass("icon-pending, hover:bg-[#6395B8]")
             $(`*[data-id="${this.first}"]`).addClass("icon-matched")
             this.playersData[this.playersTurn].score += 1
             this.iconsFound.push(this.first)
             this.#whosTurn(true)
+            if(this.iconsFound.length == ((this.grid * this.grid) / 2)) {
+                this.#displayMultiplayerScore()
+                displayFinalScore(this)
+                return
+            }
         }else{
             setTimeout(() => {
                 $(`*[data-id="${this.first}"]`).removeClass("icon-pending")
@@ -108,6 +110,7 @@ export class Game {
                 playerID: i,
                 score: 0,
                 move: 0,
+                winner: false
             })
         }
     }
@@ -177,5 +180,17 @@ export class Game {
     #updateMoves(){
         this.playersData[this.playersTurn].move += 1
         $("#moves-container").text(this.playersData[this.playersTurn].move)
+    }
+
+    getWinners() {
+        this.playersData[0].winner = true
+        for(let i = 0; i < this.playersData.length; i++) {
+            if(i === this.playersData.length) {
+                return
+            }
+            if(this.playersData[0].score === this.playersData[i].score) {
+                this.playersData[i].winner = true
+            }
+        }
     }
 }
