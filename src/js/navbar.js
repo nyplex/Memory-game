@@ -1,6 +1,6 @@
 import { pauseTimer, resumeTimer } from "./utilities"
 
-export let navbar = () => {
+export let navbar = (game) => {
     $("#menu-btn").on("click", () => {
         $("#mobile-menu-bg").removeClass("hidden")
         $("#mobile-menu").addClass("flex").removeClass("hidden")
@@ -15,4 +15,11 @@ export let navbar = () => {
         $("#mobile-menu-bg").addClass("hidden")
         $("#mobile-menu").removeClass("flex").addClass("hidden")
     })
+    $('*[data-button="new-game"]').on("click", () => {
+        location.reload();
+    })
+    $('*[data-button="restart-game"]').on("click", () => {
+        console.log(game);
+    })
+    
 }
