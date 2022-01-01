@@ -29,6 +29,7 @@
     "webpack-dev-server": "^4.6.0"
   },
   "dependencies": {
+    "express": "^4.17.2",
     "jquery": "^3.6.0",
     "node-polyfill-webpack-plugin": "^1.1.4"
   }
