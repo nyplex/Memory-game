@@ -19,7 +19,8 @@ export let navbar = (game) => {
         location.reload();
     })
     $('*[data-button="restart-game"]').on("click", () => {
-        console.log(game);
+        sessionStorage.setItem("game", JSON.stringify(game))
+        location.reload()
     })
     
 }
