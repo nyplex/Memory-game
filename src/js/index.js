@@ -3,7 +3,7 @@ import { displaySetup, hideSetup, setupInteraction } from "./display"
 import { Game } from "./Game"
 
 
-
+console.log("Safari!!!");
 
 //sessionStorage.clear()
 
