@@ -116,7 +116,6 @@ export class Game {
     }
     
     #generateGamePlay(gridSize) {
-        console.log("generate Game play");
         this.#generateIds()
         if(gridSize != 4 && gridSize != 6){
             return
@@ -131,15 +130,12 @@ export class Game {
             let index = Math.floor(Math.random()*this.ids.length)
             let id = this.ids[index];
             this.ids.splice(index, 1)
-            console.log("In the loop");
             html += `<div class='icon-holder hover:bg-[#6395B8]' id="icon-holder-${i + 1}" data-id='${id}'>
                         <h4 class="memory-number hidden">${id}</h4>
                         <img class="memory-number hidden w-[50%]" src="assets/icons/${id}.svg">
                     </div>`
         }
         document.getElementById("grid-container").innerHTML = document.getElementById("grid-container").innerHTML + html
-        //$("#grid-container").append(html)
-        console.log("Attached the game play");
         this.#generatePlayerDisplay(this.players)
         if(this.players == 1) timer()
     }
