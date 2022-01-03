@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "tailwatch": "tailwindcss -i ./src/style/main.css -o ./dist/output.css --watch",
+    "tailprod": "tailwindcss -i ./src/style/main.css -o ./dist/output.css --minify",
     "build": "webpack",
     "watch": "webpack --watch"
   },
@@ -20,6 +21,8 @@
   "homepage": "https://github.com/nyplex/Memory-game#readme",
   "devDependencies": {
     "@babel/core": "^7.16.7",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-proposal-decorators": "^7.16.7",
     "@babel/preset-env": "^7.16.7",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.1",

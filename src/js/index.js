@@ -13,7 +13,7 @@ if(sessionStorage.getItem("game")) {
     let value = JSON.parse(sessionStorage.getItem("game"))
     let game = new Game(value.theme, value.players, value.grid)
     hideSetup()
-    game.generateGamePlay()
+    game.run()
     sessionStorage.clear()
     navbar(game)
 }else{
@@ -22,7 +22,7 @@ if(sessionStorage.getItem("game")) {
     setupInteraction(game)
     $("#start-game-btn").on("click", () => {
         hideSetup()
-        game.generateGamePlay()
+        game.run()
     })
     navbar(game)
 }

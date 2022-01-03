@@ -43,7 +43,7 @@
     }
 
     .icon-holder {
-        @apply bg-[#304859] w-full rounded-full aspect-square relative hover:cursor-pointer;
+        @apply bg-[#304859] w-full rounded-full pt-[100%] relative hover:cursor-pointer;
     }
 
     .memory-number {

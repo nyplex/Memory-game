@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require("webpack");
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     devtool: 'inline-source-map',
     entry: './src/js/index.js',
     target: 'node',
@@ -23,7 +23,16 @@ module.exports = {
             use: {
                 loader: 'babel-loader',
                 options: {
-                    presets: ['@babel/preset-env']
+                    "presets": [
+                        ["@babel/preset-env", {
+                            "targets": {
+                                "browsers": [
+                                    "ie >= 8",
+                                    "safari >= 10"
+                                ]
+                            }
+                        }]
+                    ]
                 }
             }
         }]
